@@ -1,0 +1,508 @@
+Define	ColladaModel	{ Axis	Grid100x100	 }
+
+Define	DisplayEntity	{ XY-Grid	XYZ-Axis	 }
+
+Define	EntityLabel	{ ClerckBuffer.Label	ClerkBuffer2.Label	ContractBuffer.Label	EconBuffer.Label	EconResult.Label }
+Define	EntityLabel	{ Economic.Label	FinBuffer.Label	Finance.Label	FiscalBuffer.Label	FiscalYear.Label }
+Define	EntityLabel	{ HandOffClerk.Label	HandoffAnalyst.Label	PFR.Label	TransferBuffer.Label	YeachCheck.Label }
+Define	EntityLabel	{ ratesContract.Label	ratesEcon.Label	ratesFin.Label	ratesYear.Label	FinResult.Label }
+Define	EntityLabel	{ Signature.Label	HandOffFin.Label	handOffEcon.Label	PFRGenerator.Label	Exit1.Label }
+Define	EntityLabel	{ Exit2.Label	Exit3.Label	Exit4.Label	ClerckYear.Label	Clerk.Label }
+Define	EntityLabel	{ Contract.Label	Transfer.Label	PFR_365.Label	PFR_358.Label	PFR_356.Label }
+Define	EntityLabel	{ PFR_361.Label	PFR_359.Label	PFR_364.Label	PFR_363.Label	PFR_360.Label }
+Define	EntityLabel	{ PFR_362.Label	 }
+
+Define	OverlayText	{ Title	 }
+
+Define	OverlayClock	{ Clock	 }
+
+Define	DiscreteDistribution	{ ratesContract	ratesEcon	ratesFin	ratesYear	 }
+
+Define	SimEntity	{ PFR	PFR_365	PFR_358	PFR_356	PFR_361 }
+Define	SimEntity	{ PFR_359	PFR_364	PFR_363	PFR_360	PFR_362 }
+
+Define	EntityGenerator	{ PFRGenerator	 }
+
+Define	EntitySink	{ Exit1	Exit2	Exit3	Exit4	 }
+
+Define	Server	{ ClerckYear	Clerk	Contract	Economic	Finance }
+Define	Server	{ FiscalYear	Transfer	 }
+
+Define	Queue	{ ClerckBuffer	ClerkBuffer2	ContractBuffer	EconBuffer	FinBuffer }
+Define	Queue	{ FiscalBuffer	TransferBuffer	 }
+
+Define	EntityConveyor	{ HandOffClerk	HandOffFin	HandoffAnalyst	handOffEcon	 }
+
+Define	Branch	{ EconResult	FinResult	Signature	YeachCheck	 }
+
+Define	View	{ View1	 }
+
+" Simulation "
+
+	Simulation	Name	{ Simulation }
+	Simulation	Description	{ 'Simulation run control inputs' }
+	Simulation	DisplayedUnits	{ min  deg }
+	Simulation	RealTime	{ TRUE }
+	Simulation	SnapToGrid	{ TRUE }
+	Simulation	RealTimeFactor	{ 1024 }
+	Simulation	ShowLabels	{ TRUE }
+	Simulation	ShowSubModels	{ TRUE }
+	Simulation	ShowEntityFlow	{ TRUE }
+	Simulation	ShowModelBuilder	{ TRUE }
+	Simulation	ShowObjectSelector	{ TRUE }
+	Simulation	ShowInputEditor	{ TRUE }
+	Simulation	ShowOutputViewer	{ TRUE }
+	Simulation	ShowPropertyViewer	{ TRUE }
+	Simulation	ShowLogViewer	{ TRUE }
+	Simulation	ObjectSelectorPos	{ 0  563 }
+	Simulation	ObjectSelectorSize	{ 220  877 }
+	Simulation	InputEditorPos	{ 220  1190 }
+	Simulation	InputEditorSize	{ 2193  249 }
+
+" ColladaModel "
+
+	Axis	Name	{ Axis }
+	Axis	ColladaFile	{ <res>/shapes/axis_text.dae }
+
+	Grid100x100	Name	{ Grid100x100 }
+	Grid100x100	ColladaFile	{ <res>/shapes/grid100x100.dae }
+
+" DisplayEntity "
+
+	XY-Grid	Name	{ XY-Grid }
+	XY-Grid	Description	{ 'Grid for the X-Y plane (100 m x 100 m)' }
+	XY-Grid	Size	{ 100  100  m }
+	XY-Grid	DisplayModel	{ Grid100x100 }
+	XY-Grid	Show	{ FALSE }
+	XY-Grid	Movable	{ FALSE }
+
+	XYZ-Axis	Name	{ XYZ-Axis }
+	XYZ-Axis	Description	{ 'Unit vectors' }
+	XYZ-Axis	Alignment	{ -0.4393409  -0.4410096  -0.4394292 }
+	XYZ-Axis	Size	{ 1.125000  1.1568242  1.1266404  m }
+	XYZ-Axis	DisplayModel	{ Axis }
+	XYZ-Axis	Show	{ FALSE }
+	XYZ-Axis	Movable	{ FALSE }
+
+" EntityLabel "
+
+	ClerckBuffer.Label	Name	{ Label }
+	ClerckBuffer.Label	Position	{ 0.0  0.5  0.0  m }
+	ClerckBuffer.Label	Size	{ 1.6  0.3  1.0  m }
+
+	ClerckYear.Label	Name	{ Label }
+	ClerckYear.Label	Position	{ 0.0  -0.65  0.0  m }
+	ClerckYear.Label	Size	{ 1.2  0.3  1.0  m }
+	ClerckYear.Label	Show	{ FALSE }
+
+	Clerk.Label	Name	{ Label }
+	Clerk.Label	Position	{ 0.0  -0.65  0.0  m }
+	Clerk.Label	Size	{ 0.7  0.3  1.0  m }
+	Clerk.Label	Show	{ FALSE }
+
+	ClerkBuffer2.Label	Name	{ Label }
+	ClerkBuffer2.Label	Position	{ 0.1  0.4  0.0  m }
+	ClerkBuffer2.Label	Size	{ 1.6  0.3  1.0  m }
+
+	Contract.Label	Name	{ Label }
+	Contract.Label	Position	{ 0.0  -0.65  0.0  m }
+	Contract.Label	Size	{ 1.0  0.3  1.0  m }
+	Contract.Label	Show	{ FALSE }
+
+	ContractBuffer.Label	Name	{ Label }
+	ContractBuffer.Label	Position	{ 0.1  0.4  0.0  m }
+	ContractBuffer.Label	Size	{ 1.8  0.3  1.0  m }
+
+	EconBuffer.Label	Name	{ Label }
+	EconBuffer.Label	Position	{ -0.0  0.5  0.0  m }
+	EconBuffer.Label	Size	{ 1.4  0.3  1.0  m }
+
+	EconResult.Label	Name	{ Label }
+	EconResult.Label	Position	{ -0.9  -0.3  0.0  m }
+	EconResult.Label	Size	{ 1.4  0.3  1.0  m }
+
+	Economic.Label	Name	{ Label }
+	Economic.Label	Position	{ -0.9  0.4  0.0  m }
+	Economic.Label	Size	{ 1.2  0.3  1.0  m }
+
+	Exit1.Label	Name	{ Label }
+	Exit1.Label	Position	{ 0.0  -0.65  0.0  m }
+	Exit1.Label	Size	{ 0.7  0.3  1.0  m }
+	Exit1.Label	Show	{ FALSE }
+
+	Exit2.Label	Name	{ Label }
+	Exit2.Label	Position	{ 0.0  -0.65  0.0  m }
+	Exit2.Label	Size	{ 0.7  0.3  1.0  m }
+	Exit2.Label	Show	{ FALSE }
+
+	Exit3.Label	Name	{ Label }
+	Exit3.Label	Position	{ 0.0  -0.65  0.0  m }
+	Exit3.Label	Size	{ 0.7  0.3  1.0  m }
+	Exit3.Label	Show	{ FALSE }
+
+	Exit4.Label	Name	{ Label }
+	Exit4.Label	Position	{ 0.0  -0.65  0.0  m }
+	Exit4.Label	Size	{ 0.7  0.3  1.0  m }
+	Exit4.Label	Show	{ FALSE }
+
+	FinBuffer.Label	Name	{ Label }
+	FinBuffer.Label	Position	{ 0.2  0.5  0.0  m }
+	FinBuffer.Label	Size	{ 1.2  0.3  1.0  m }
+
+	FinResult.Label	Name	{ Label }
+	FinResult.Label	Position	{ 0.0  -0.65  0.0  m }
+	FinResult.Label	Size	{ 1.1  0.3  1.0  m }
+	FinResult.Label	Show	{ FALSE }
+
+	Finance.Label	Name	{ Label }
+	Finance.Label	Position	{ -0.9  0.3  0.0  m }
+
+	FiscalBuffer.Label	Name	{ Label }
+	FiscalBuffer.Label	Position	{ -0.1  0.5  0.0  m }
+	FiscalBuffer.Label	Size	{ 1.5  0.3  1.0  m }
+
+	FiscalYear.Label	Name	{ Label }
+	FiscalYear.Label	Position	{ -0.8  0.4  0.0  m }
+	FiscalYear.Label	Size	{ 1.3  0.3  1.0  m }
+
+	HandOffClerk.Label	Name	{ Label }
+	HandOffClerk.Label	Position	{ 0.0  0.3  0.0  m }
+	HandOffClerk.Label	Size	{ 1.7  0.3  1.0  m }
+
+	HandOffFin.Label	Name	{ Label }
+	HandOffFin.Label	Position	{ 0.0  -0.15  0.0  m }
+	HandOffFin.Label	Size	{ 1.3  0.3  1.0  m }
+	HandOffFin.Label	Show	{ FALSE }
+
+	HandoffAnalyst.Label	Name	{ Label }
+	HandoffAnalyst.Label	Position	{ 1.1  0.1  0.0  m }
+	HandoffAnalyst.Label	Size	{ 1.9  0.3  1.0  m }
+
+	PFR.Label	Name	{ Label }
+	PFR.Label	Position	{ -0.2  0.5  0.0  m }
+	PFR.Label	Size	{ 0.6  0.3  1.0  m }
+
+	PFRGenerator.Label	Name	{ Label }
+	PFRGenerator.Label	Position	{ 0.0  -0.65  0.0  m }
+	PFRGenerator.Label	Size	{ 1.6  0.3  1.0  m }
+	PFRGenerator.Label	Show	{ FALSE }
+
+	PFR_356.Label	Name	{ Label }
+	PFR_356.Label	Position	{ -0.2  0.5  0.0  m }
+	PFR_356.Label	Size	{ 0.6  0.3  1.0  m }
+
+	PFR_358.Label	Name	{ Label }
+	PFR_358.Label	Position	{ -0.2  0.5  0.0  m }
+	PFR_358.Label	Size	{ 0.6  0.3  1.0  m }
+
+	PFR_359.Label	Name	{ Label }
+	PFR_359.Label	Position	{ -0.2  0.5  0.0  m }
+	PFR_359.Label	Size	{ 0.6  0.3  1.0  m }
+
+	PFR_360.Label	Name	{ Label }
+	PFR_360.Label	Position	{ -0.2  0.5  0.0  m }
+	PFR_360.Label	Size	{ 0.6  0.3  1.0  m }
+
+	PFR_361.Label	Name	{ Label }
+	PFR_361.Label	Position	{ -0.2  0.5  0.0  m }
+	PFR_361.Label	Size	{ 0.6  0.3  1.0  m }
+
+	PFR_362.Label	Name	{ Label }
+	PFR_362.Label	Position	{ -0.2  0.5  0.0  m }
+	PFR_362.Label	Size	{ 0.6  0.3  1.0  m }
+
+	PFR_363.Label	Name	{ Label }
+	PFR_363.Label	Position	{ -0.2  0.5  0.0  m }
+	PFR_363.Label	Size	{ 0.6  0.3  1.0  m }
+
+	PFR_364.Label	Name	{ Label }
+	PFR_364.Label	Position	{ -0.2  0.5  0.0  m }
+	PFR_364.Label	Size	{ 0.6  0.3  1.0  m }
+
+	PFR_365.Label	Name	{ Label }
+	PFR_365.Label	Position	{ -0.2  0.5  0.0  m }
+	PFR_365.Label	Size	{ 0.6  0.3  1.0  m }
+
+	Signature.Label	Name	{ Label }
+	Signature.Label	Position	{ 0.0  -0.65  0.0  m }
+	Signature.Label	Size	{ 1.1  0.3  1.0  m }
+	Signature.Label	Show	{ FALSE }
+
+	Transfer.Label	Name	{ Label }
+	Transfer.Label	Position	{ 0.0  -0.65  0.0  m }
+	Transfer.Label	Size	{ 1.0  0.3  1.0  m }
+	Transfer.Label	Show	{ FALSE }
+
+	TransferBuffer.Label	Name	{ Label }
+	TransferBuffer.Label	Position	{ 0.1  0.4  0.0  m }
+	TransferBuffer.Label	Size	{ 1.8  0.3  1.0  m }
+
+	YeachCheck.Label	Name	{ Label }
+	YeachCheck.Label	Position	{ 0.0  -0.5  0.0  m }
+	YeachCheck.Label	Size	{ 1.5  0.3  1.0  m }
+
+	handOffEcon.Label	Name	{ Label }
+	handOffEcon.Label	Position	{ 0.0  -0.15  0.0  m }
+	handOffEcon.Label	Size	{ 1.5  0.3  1.0  m }
+	handOffEcon.Label	Show	{ FALSE }
+
+	ratesContract.Label	Name	{ Label }
+	ratesContract.Label	Position	{ 0.0  -0.65  0.0  m }
+	ratesContract.Label	Size	{ 1.5  0.3  1.0  m }
+	ratesContract.Label	Show	{ FALSE }
+
+	ratesEcon.Label	Name	{ Label }
+	ratesEcon.Label	Position	{ 0.0  -0.65  0.0  m }
+	ratesEcon.Label	Size	{ 1.2  0.3  1.0  m }
+	ratesEcon.Label	Show	{ FALSE }
+
+	ratesFin.Label	Name	{ Label }
+	ratesFin.Label	Position	{ 0.0  -0.65  0.0  m }
+	ratesFin.Label	Size	{ 1.0  0.3  1.0  m }
+	ratesFin.Label	Show	{ FALSE }
+
+	ratesYear.Label	Name	{ Label }
+	ratesYear.Label	Position	{ 0.0  -0.65  0.0  m }
+	ratesYear.Label	Size	{ 1.1  0.3  1.0  m }
+	ratesYear.Label	Show	{ FALSE }
+
+" OverlayText "
+
+	Title	Name	{ Title }
+	Title	Description	{ 'Title for the simulation model' }
+	Title	Format	{ 'Model Title' }
+	Title	ScreenPosition	{ 15  15 }
+	Title	TextHeight	{ 18 }
+	Title	FontColour	{ 150  23  46 }
+	Title	FontStyle	{ BOLD }
+
+" OverlayClock "
+
+	Clock	Name	{ Clock }
+	Clock	Description	{ 'Simulation date and time' }
+	Clock	DateFormat	{ 'yyyy-MMM-dd HH:mm:ss.SSS' }
+	Clock	ScreenPosition	{ 15  15 }
+	Clock	AlignBottom	{ TRUE }
+	Clock	TextHeight	{ 10 }
+	Clock	FontColour	{ gray20 }
+	Clock	FontStyle	{ ITALIC }
+
+" DiscreteDistribution "
+
+	ratesContract	Name	{ ratesContract }
+	ratesContract	UnitType	{ DimensionlessUnit }
+	ratesContract	RandomSeed	{ 4 }
+	ratesContract	ValueList	{ 1  2 }
+	ratesContract	ProbabilityList	{ 0.1  0.9 }
+	ratesContract	Position	{ -4.8  -1.6  0.0  m }
+
+	ratesEcon	Name	{ ratesEcon }
+	ratesEcon	UnitType	{ DimensionlessUnit }
+	ratesEcon	RandomSeed	{ 1 }
+	ratesEcon	ValueList	{ 1  2 }
+	ratesEcon	ProbabilityList	{ 0.1  0.9 }
+	ratesEcon	Position	{ -9.0  -1.6  0.0  m }
+
+	ratesFin	Name	{ ratesFin }
+	ratesFin	UnitType	{ DimensionlessUnit }
+	ratesFin	RandomSeed	{ 3 }
+	ratesFin	ValueList	{ 1  2 }
+	ratesFin	ProbabilityList	{ 0.9  0.1 }
+	ratesFin	Position	{ -6.2  -1.6  0.0  m }
+
+	ratesYear	Name	{ ratesYear }
+	ratesYear	UnitType	{ DimensionlessUnit }
+	ratesYear	RandomSeed	{ 2 }
+	ratesYear	ValueList	{ 1  2 }
+	ratesYear	ProbabilityList	{ 0.1  0.9 }
+	ratesYear	Position	{ -7.5  -1.6  0.0  m }
+
+" SimEntity "
+
+	PFR	Name	{ PFR }
+	PFR	Position	{ -8.6  2.8  0.0  m }
+	PFR	Alignment	{ 0.0  0.0  -0.5 }
+
+	PFR_356	Name	{ PFR_356 }
+	PFR_356	Position	{ -8.6  2.8  0.0  m }
+	PFR_356	Alignment	{ 0.0  0.0  -0.5 }
+
+	PFR_358	Name	{ PFR_358 }
+	PFR_358	Position	{ -8.6  2.8  0.0  m }
+	PFR_358	Alignment	{ 0.0  0.0  -0.5 }
+
+	PFR_359	Name	{ PFR_359 }
+	PFR_359	Position	{ -8.6  2.8  0.0  m }
+	PFR_359	Alignment	{ 0.0  0.0  -0.5 }
+
+	PFR_360	Name	{ PFR_360 }
+	PFR_360	Position	{ -8.6  2.8  0.0  m }
+	PFR_360	Alignment	{ 0.0  0.0  -0.5 }
+
+	PFR_361	Name	{ PFR_361 }
+	PFR_361	Position	{ -8.6  2.8  0.0  m }
+	PFR_361	Alignment	{ 0.0  0.0  -0.5 }
+
+	PFR_362	Name	{ PFR_362 }
+	PFR_362	Position	{ -8.6  2.8  0.0  m }
+	PFR_362	Alignment	{ 0.0  0.0  -0.5 }
+
+	PFR_363	Name	{ PFR_363 }
+	PFR_363	Position	{ -8.6  2.8  0.0  m }
+	PFR_363	Alignment	{ 0.0  0.0  -0.5 }
+
+	PFR_364	Name	{ PFR_364 }
+	PFR_364	Position	{ -8.6  2.8  0.0  m }
+	PFR_364	Alignment	{ 0.0  0.0  -0.5 }
+
+	PFR_365	Name	{ PFR_365 }
+	PFR_365	Position	{ -8.6  2.8  0.0  m }
+	PFR_365	Alignment	{ 0.0  0.0  -0.5 }
+
+" EntityGenerator "
+
+	PFRGenerator	Name	{ PFRGenerator }
+	PFRGenerator	NextComponent	{ Clerk }
+	PFRGenerator	InterArrivalTime	{ 24  h }
+	PFRGenerator	PrototypeEntity	{ PFR }
+	PFRGenerator	BaseName	{ PFR_ }
+	PFRGenerator	Position	{ -8.6  1.5  0.0  m }
+
+" EntitySink "
+
+	Exit1	Name	{ Exit1 }
+	Exit1	Position	{ -2.8  -1.3  0.0  m }
+
+	Exit2	Name	{ Exit2 }
+	Exit2	Position	{ 2.9  -1.2  0.0  m }
+
+	Exit3	Name	{ Exit3 }
+	Exit3	Position	{ 4.9  -1.2  0.0  m }
+
+	Exit4	Name	{ Exit4 }
+	Exit4	Position	{ 8.2  -0.4  0.0  m }
+
+" Server "
+
+	ClerckYear	Name	{ ClerckYear }
+	ClerckYear	NextComponent	{ HandoffAnalyst }
+	ClerckYear	WaitQueue	{ ClerkBuffer2 }
+	ClerckYear	ServiceTime	{ 960  min }
+	ClerckYear	Position	{ 2.3  3.7  0.0  m }
+
+	Clerk	Name	{ Clerk }
+	Clerk	NextComponent	{ handOffEcon }
+	Clerk	WaitQueue	{ ClerckBuffer }
+	Clerk	ServiceTime	{ 20  min }
+	Clerk	Position	{ -7.0  1.5  0.0  m }
+
+	Contract	Name	{ Contract }
+	Contract	NextComponent	{ Signature }
+	Contract	WaitQueue	{ ContractBuffer }
+	Contract	ServiceTime	{ 480  min }
+	Contract	Position	{ 4.8  1.4  0.0  m }
+
+	Economic	Name	{ Economic }
+	Economic	NextComponent	{ EconResult }
+	Economic	WaitQueue	{ EconBuffer }
+	Economic	ServiceTime	{ 1440  min }
+	Economic	Position	{ -2.8  1.5  0.0  m }
+
+	Finance	Name	{ Finance }
+	Finance	NextComponent	{ FinResult }
+	Finance	WaitQueue	{ FinBuffer }
+	Finance	ServiceTime	{ 475  min }
+	Finance	Position	{ 3.0  1.5  0.0  m }
+
+	FiscalYear	Name	{ FiscalYear }
+	FiscalYear	NextComponent	{ YeachCheck }
+	FiscalYear	WaitQueue	{ FiscalBuffer }
+	FiscalYear	ServiceTime	{ 5  min }
+	FiscalYear	Position	{ -0.1  1.5  0.0  m }
+
+	Transfer	Name	{ Transfer }
+	Transfer	NextComponent	{ Exit4 }
+	Transfer	WaitQueue	{ TransferBuffer }
+	Transfer	Position	{ 6.6  1.4  0.0  m }
+
+" Queue "
+
+	ClerckBuffer	Name	{ ClerckBuffer }
+	ClerckBuffer	Position	{ -7.0  2.9  0.0  m }
+
+	ClerkBuffer2	Name	{ ClerkBuffer2 }
+	ClerkBuffer2	Position	{ 2.3  4.8  0.0  m }
+
+	ContractBuffer	Name	{ ContractBuffer }
+	ContractBuffer	Position	{ 4.8  2.4  0.0  m }
+
+	EconBuffer	Name	{ EconBuffer }
+	EconBuffer	Position	{ -2.8  2.8  0.0  m }
+
+	FinBuffer	Name	{ FinBuffer }
+	FinBuffer	Position	{ 2.6  2.3  0.0  m }
+
+	FiscalBuffer	Name	{ FiscalBuffer }
+	FiscalBuffer	Position	{ -0.1  2.8  0.0  m }
+
+	TransferBuffer	Name	{ TransferBuffer }
+	TransferBuffer	Position	{ 6.6  2.4  0.0  m }
+
+" EntityConveyor "
+
+	HandOffClerk	Name	{ HandOffClerk }
+	HandOffClerk	NextComponent	{ ClerckYear }
+	HandOffClerk	TravelTime	{ 495  min }
+	HandOffClerk	Points	{ { 1.1  2.2  0.0  m }
+					 { 1.8  2.2  0.0  m } 	}
+
+	HandOffFin	Name	{ HandOffFin }
+	HandOffFin	NextComponent	{ FiscalYear }
+	HandOffFin	TravelTime	{ 15  min }
+	HandOffFin	Points	{ { -1.9  1.5  0.0  m }
+					 { -0.9  1.5  0.0  m } 	}
+
+	HandoffAnalyst	Name	{ HandoffAnalyst }
+	HandoffAnalyst	NextComponent	{ Finance }
+	HandoffAnalyst	TravelTime	{ 15  min }
+	HandoffAnalyst	Points	{ { 3.5  3.7  0.0  m }
+					 { 3.5  2.5  0.0  m } 	}
+
+	handOffEcon	Name	{ handOffEcon }
+	handOffEcon	NextComponent	{ Economic }
+	handOffEcon	TravelTime	{ 1935  min }
+	handOffEcon	Points	{ { -5.9  1.5  0.0  m }
+					 { -3.9  1.5  0.0  m } 	}
+
+" Branch "
+
+	EconResult	Name	{ EconResult }
+	EconResult	NextComponentList	{ Exit1  HandOffFin }
+	EconResult	Choice	{ ratesEcon }
+	EconResult	Position	{ -2.8  0.2  0.0  m }
+
+	FinResult	Name	{ FinResult }
+	FinResult	NextComponentList	{ Contract  Exit2 }
+	FinResult	Choice	{ ratesFin }
+	FinResult	Position	{ 3.0  0.2  0.0  m }
+
+	Signature	Name	{ Signature }
+	Signature	NextComponentList	{ Exit3  Transfer }
+	Signature	Choice	{ ratesContract }
+	Signature	Position	{ 4.8  0.2  0.0  m }
+
+	YeachCheck	Name	{ YeachCheck }
+	YeachCheck	NextComponentList	{ HandOffClerk  Finance }
+	YeachCheck	Choice	{ ratesYear }
+	YeachCheck	Position	{ -0.1  0.2  0.0  m }
+
+" View "
+
+	View1	Name	{ View1 }
+	View1	Description	{ 'Default view window' }
+	View1	ViewCenter	{ 0.7  1.1  12.507545  m }
+	View1	ViewPosition	{ 0.7  1.1  39.45765  m }
+	View1	ShowWindow	{ TRUE }
+	View1	Lock2D	{ TRUE }
+	View1	SkyboxImage	{ <res>/images/sky_map_2048x1024.jpg }
+
