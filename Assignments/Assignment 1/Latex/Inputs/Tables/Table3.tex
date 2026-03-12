@@ -1,0 +1,31 @@
+\begin{table}[H]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.12\textwidth}>{\raggedright\arraybackslash}p{0.26\textwidth}>{\raggedright\arraybackslash}p{0.15\textwidth}>{\raggedright\arraybackslash}p{0.23\textwidth}>{\raggedright\arraybackslash}X@{}}
+\toprule
+\textbf{Flowchart ID} & \textbf{Process activity} & \textbf{Resource} & \textbf{Statistical distribution/Data} & \textbf{Simulation usage} \\
+\midrule
+0 & Arrival of claim & -- & Exponential (mean = 120 min) & Inter-arrival time for EntityGenerator \\
+1 & Intake review & 1 clerk & Normal ($\sigma = 4$, $\mu = 20$) min & Service time for Server object \\
+1a & Intake decision & -- & 5\% reject / 95\% proceed & Branch logic and choice probabilities \\
+2 & Digital transfer & IT system & Gamma ($k = 5$, $\theta = 3$), mean 15 min & Processing time for delay object \\
+3 & Damage investigation & 3 investigators & Gamma ($\alpha = 2$, $\beta = 720$), mean 1440 min & Service time for server \\
+4 & Liability decision & -- & 10\% reject / 90\% OK & Branch logic and choice probabilities \\
+5 & Handoff to finance & -- & Constant 15 min & Entity delay between stations \\
+6 & Financial assessment & 2 adjusters & Beta ($\alpha = 2$, $\beta = 2$), 360--600 min & Service time \\
+7a & Rework check & -- & 25\% rework / 75\% OK & Loop back and branch logic \\
+7b & Return transfer & IT system & Constant 15 min & Return transfer delay \\
+7c & Clerk inbox delay & Clerk & Erlang ($k = 3$, $\theta = 160$), mean 480 min & Delay before correction \\
+7d & Correction & Clerk/client & Normal ($\mu = 960$, $\sigma = 120$) min & Service time for rework station \\
+7e & Re-submission & IT system & Constant 15 min & Re-submission delay \\
+8 & Payout approval & -- & 5\% decline / 95\% approved & Branch object \\
+9 & Settlement draft & Lawyer & Uniform (420--540) min & Service time for final bottleneck \\
+10 & Handoff to treasury & -- & Constant 15 min & Treasury handoff delay \\
+11 & Funds transfer & Treasury & Normal ($\mu = 30$, $\sigma = 5$) min & Final value-adding process \\
+\bottomrule
+\end{tabularx}
+\caption{Detailed workflow documentation}
+\label{tab:simulation_process}
+\end{table}

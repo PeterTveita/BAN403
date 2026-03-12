@@ -1,0 +1,132 @@
+\newpage
+
+\section{Task 2: The business challenge}
+\subsection{AS-IS process architecture}
+
+\subsubsection{Defining boundaries}
+
+The Freight Claim Request (FCR) is first triggered when a client experiences a cargo loss and files a formal claim. The process officially starts when the client submits the FCR at the GCI’s central intake desk. The process concludes either when the claim is declined due to incomplete documentation or suspected fraud, or when The Treasury Department releases the fund backs to the client. 
+
+\subsubsection{Flow unit}
+
+The main flow unit moving through this process is the Freight Claim Request (FCR) file. This includes the damage reports, photographic evidence, original shipping manifests, and financial valuation documents.
+
+\input{Inputs/Tables/Table1.tex}
+
+For a full visual mapping of where these resources and buffers operate across the customer/front-office/back-office domains, please see the General Process Chart and Service System Map (SSM) in appendix A. 
+
+\subsubsection{Classifications}
+
+To evaluate the activities in the AS-IS process we have classified each in value-adding, non-value-adding and business value-adding. As we can see in the table under only the fund transfer directly creates value for the customer, as it is delivering the financial compensation that is expected from the claim. Most of the other activities are classified as BVA because they are necessary for meeting regulatory requirements. While several activities marked by NVA because they represent delays, transportations or rework, which does not create customer value. 
+
+\input{Inputs/Tables/Table2.tex}
+
+\subsubsection{Case for action}
+
+The current AS-IS process suffers from systemic inefficiencies and functional silos driven by a high volume of NAV activities. Multiple handoffs between departments introduce significant delays and unproductive use of time into the workflow. Most critically the 25% rework loop, which is triggered by outdated currency conversion forms, creates a severe bottleneck in the process and forcing senior claim adjusters to waste useful time correcting administrative errors. Added together these flaws lead to an excessively long cycle time, and an increase in customer dissatisfaction. Operationally this results in inflated costs and suboptimal resource utilization, which is threatening GCI’s reputation in the market and limits its ability for future growth (Laguna & Marklund, 2019).
+
+\subsubsection{Vision statement}
+The redesigned process will help eliminate departmental barriers by adopting a cross-functional case management approach and implement mistake proofing at the initial intake. Being able to capture the correct currency data at the source, and streamlining automated handoffs, the new design will help drastically reduce the total cycle time and ensure a more efficient payout experience for the client. 
+
+\subsubsection{KPI}
+\textbf{Average cycle time}
+
+Measuring the average time from when a FCR is submitted, until the claim is either paid out or rejected. It reflects the overall cycle time of the process and identifies where delays are caused by rework, queues or inefficient handoffs. The goal is to reduce the total cycle time to address customer complaints about delays. 
+
+\subsubsection{Quality}
+This KPI is measuring the percentage of claims that go through the whole process without entering the rework loop. It reflects the reliability of the process from the customers perspective and is an indicator of how consistently GCI deliver timely claim settlements. 
+
+\subsubsection{Cost: Resource utilization}
+This KPI measures the percentage of time senior claim adjusters are actively working on a claim. The goal is to ensure that expensive resources are used effectively and not wasted on administrative delays or departmental handoffs. 
+
+\subsection{Workflow documentation}
+
+To ensure an accurate simulation of the AS-IS process, we have organized all the points from the case description and their respective process steps. This data will be used for the logic in the JaamSim model, the flowchart diagram and table of documented data can be found in appendix B. 
+
+\subsection{Baseline analytic analysis} 
+
+To be able to identify the bottlenecks we will compare demand with capacity for each resource. We assume and 8-hour workday, which is 480 minutes. The arrival rate $\lambda$ is 1 claim each 120 minutes, which is 4 claims in a day. The calculation for demand is shown in the excel file. Lets take legal as an example:
+
+\[
+\text{Legal: } 4 \times 0.90 \times 0.95 = 3.249 \text{ claims}
+\]
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{Bilde1.png}
+    \caption{}
+    \label{fig:bilde1}
+\end{figure}
+
+The most critical findings we did is that three out of the four groups of resources are operating with utilization rate exceeding 100\%. The primary bottleneck is the marine investigators at 380\% utilization, while legal and senior adjusters also operate well over capacity. On the other hand, the intake clerk is severely under-utilized. This over utilization is worsened by high variability in both claim arrivals and processing times, creating massive and unrecoverable backlogs. Furthermore, functional silos continuous friction at handoff, and a 25\% rework loop adds over three days of NVA delay to affected claims. At last, these mistakes create structural flaws a “death spiral” of continuous increasing cycle times, inflated cost and customer dissatisfaction. 
+
+\subsubsection{TO - BE process design}
+
+The conceptual redesign of the FCR transitions GCI from a fragmented functional orientation to a product-oriented workflow. By focusing on the claim rather than the departmental boundaries, the new design achieves significant improvements in quality and cycle time. You can see the redesigned process diagram in appendix C. The following principles have been applied:
+
+\subsubsection{Organize work around outcomes, not tasks}
+
+We dismantled functional silos by introducing a cross-functional management approach. Instead of performing isolated departmental tasks, resources coordinated by a case manager are organized into claim resolution teams that take shared responsibility for the ultimate outcome, this being a quick and accurate payout. 
+
+\subsubsection{Capture information at the source}
+
+We implemented an automated system validation at the initial intake to ensure that the correct currency exchange rate is captured immediately. This will help guarantee data quality upfront adding to the principle of capturing information once, and eliminate the need for manual re-entry later. 
+
+\subsubsection{Design for dominant flow, not expectations and mistake proofing critical steps}
+
+Using the strategy “Poka-Yoke”, which is a “well-known strategy for and
+improvement in product and process design” \parencite[p. 99]{laguna2019}, at the intake step completely exterminates the 25\% currency rework loop, and its 3 day inbox delay. The workflow is now optimized for the dominant flow, which is 90\% of the valid claims. This is removing complex exception routes and unnecessary work-in-progress buffers. 
+
+\subsection{Simulation analysis: AS-IS vs TO-BE}
+
+\subsubsection{Structure}
+
+The AS-IS model represents the current state of GCI's claim handling. This is characterized by significant time buffers and sequential processing. The model follows a sequential structure where each task must be fully completed before the next department can begin. \\
+
+The main simulation entity is the FCR. Each claim represents one claim submitted by a client and moves through the process until its either rejected or paid out. Each entity contains a limited number of attributes used to track the progress through the system. The model includes the main processing activities described in the case: Intake and requisite review, digital transfer, damage investigation, financial assessment, rework loop, settlement communication and funds transfer. While state variables include queue length, utilization and number of entities completed or rejected. \\
+
+The AS-IS model process is severely hindered by some structural flaws. Firstly, the strictly sequential handoffs between isolated departments introduce significant non-value-adding delays. Second, a 25\% rework loop forces claims back to intake, creating a massive bottleneck that inflates total cycle time. Finally, we see that the process suffers from rigid resource dependencies, because tasks rely on a single, specialized resources working in functional silos, creating queueing and work in progress accumulation.  
+
+\subsubsection{Arrivals and service times}
+
+The arrival process is modeled using an exponential distribution with a mean of 120 minutes. However, to be able to catch the true process dynamics, service times are modeled using the specific stochastic distributions provided, rather than simple averages. 
+
+\subsubsection{Validation checks}
+The model logic was visually verified in JaamSim to ensure that the routing behavior at the Branch objects, matches the conceptual flow chart. The utilization state variable for marine investigators, causing the queue length s to grow continuously due to capacity constraints. Consequently, the average cycle time continuously inflates, proving that the current system is mathematically unstable. The simulation's accuracy was also verified using Little's Law. 
+
+\[
+L = \lambda \times W
+\]
+
+By comparing the recorded average queue length against the calculated arrival rate and observed wait times at the bottleneck, we see that the model demonstrates a high degree of internal validity and mathematical consistency. 
+
+\[
+L \approx \left(\frac{\text{Number added}}{\text{SimTime}}\right) \times \text{AverageQueueTime}
+\]
+\\
+Where L is Queue Length Average
+
+Example at 550 hours:
+
+\[
+81.06 \approx \left(\frac{241}{550.25}\right) \times 185.077
+\]
+
+\[
+81.06 \approx 81.06
+\]
+
+\subsubsection{TO-BE, improvements}
+
+The redesigned model transitions from a sequential workflow to one utilizing parallel processing and case management. After the initial intake, a duplicate object splits the FCR, sending it to marine investigation and financial assessment simultaneously. Later a combine object synchronizes the two parallel paths before the claim proceeds to the legal settlement stage.  
+
+\subsubsection{Key assumptions} 
+
+To initiate mistake proofing an automated validated step is assumed at the initial digital intake. This «Poke-yoke» mechanism correctly captures correct currency data at the source. This is eliminating the 25\% rework branch, and the associated multi-day delays. \\
+
+By utilizing a cross functional case Management approach, the model assumes that the 15-minute departmental handoffs are reduced to zero, helping remove non-value-adding friction. As a recommendation, to prevent the bottleneck from shifting downstream, we chose to increase the capacities for the lawyer and investigators (investigators, n=5, lawyer, n=2).
+
+\subsubsection{Comparison}
+The simulation results show that by implementing additional investigators and parallelizing the workflow, the average waiting time in the investigation queue dropped from 185h to 127h. This reduction proves that the redesigned process is more resilient to variability in arrival rates. Even though the waiting time decreased, there is still a residual queue due to the high arrival rates, and it shows the need for continuous monitoring of capacity. We also see that the average units in use of all investigators, lawyers and adjuster have increased in the new model, resulting in higher utilization. Further we see that the number of processed claims in the same amount of time in the TO-BE simulation almost doubled from 57 claims to 105 claims. \\
+
+Simulation shows that the redesigned process significantly improves the system. Ultimately this structural redesign reduces the average cycle time, transforming GCI's claims handling into a more efficient, scalable and customer focused operation. 

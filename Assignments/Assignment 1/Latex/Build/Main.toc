@@ -1,0 +1,29 @@
+\babel@toc {american}{}\relax 
+\contentsline {section}{\numberline {1}Task 1: Monte Carlo Simulation}{2}{section.1}%
+\contentsline {subsection}{\numberline {1.1}The model}{2}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Optimalization}{2}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Results}{2}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.4}Model evaluation}{3}{subsection.1.4}%
+\contentsline {section}{\numberline {2}Task 2: The business challenge}{5}{section.2}%
+\contentsline {subsection}{\numberline {2.1}AS-IS process architecture}{5}{subsection.2.1}%
+\contentsline {subsubsection}{\numberline {2.1.1}Defining boundaries}{5}{subsubsection.2.1.1}%
+\contentsline {subsubsection}{\numberline {2.1.2}Flow unit}{5}{subsubsection.2.1.2}%
+\contentsline {subsubsection}{\numberline {2.1.3}Classifications}{5}{subsubsection.2.1.3}%
+\contentsline {subsubsection}{\numberline {2.1.4}Case for action}{6}{subsubsection.2.1.4}%
+\contentsline {subsubsection}{\numberline {2.1.5}Vision statement}{6}{subsubsection.2.1.5}%
+\contentsline {subsubsection}{\numberline {2.1.6}KPI}{6}{subsubsection.2.1.6}%
+\contentsline {subsubsection}{\numberline {2.1.7}Quality}{6}{subsubsection.2.1.7}%
+\contentsline {subsubsection}{\numberline {2.1.8}Cost: Resource utilization}{7}{subsubsection.2.1.8}%
+\contentsline {subsection}{\numberline {2.2}Workflow documentation}{7}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Baseline analytic analysis}{7}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}TO - BE process design}{7}{subsubsection.2.3.1}%
+\contentsline {subsubsection}{\numberline {2.3.2}Organize work around outcomes, not tasks}{8}{subsubsection.2.3.2}%
+\contentsline {subsubsection}{\numberline {2.3.3}Capture information at the source}{8}{subsubsection.2.3.3}%
+\contentsline {subsubsection}{\numberline {2.3.4}Design for dominant flow, not expectations and mistake proofing critical steps}{8}{subsubsection.2.3.4}%
+\contentsline {subsection}{\numberline {2.4}Simulation analysis: AS-IS vs TO-BE}{8}{subsection.2.4}%
+\contentsline {subsubsection}{\numberline {2.4.1}Structure}{8}{subsubsection.2.4.1}%
+\contentsline {subsubsection}{\numberline {2.4.2}Arrivals and service times}{9}{subsubsection.2.4.2}%
+\contentsline {subsubsection}{\numberline {2.4.3}Validation checks}{9}{subsubsection.2.4.3}%
+\contentsline {subsubsection}{\numberline {2.4.4}TO-BE, improvements}{9}{subsubsection.2.4.4}%
+\contentsline {subsubsection}{\numberline {2.4.5}Key assumptions}{9}{subsubsection.2.4.5}%
+\contentsline {subsubsection}{\numberline {2.4.6}Comparison}{10}{subsubsection.2.4.6}%

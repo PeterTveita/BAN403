@@ -1,0 +1,40 @@
+% =========================
+% Preamble.tex (simple + robust)
+% =========================
+
+% Language (APA mapping)
+\usepackage[american]{babel}
+\usepackage{csquotes}
+
+% Page layout (A4 + sane margins)
+\usepackage[a4paper,left=3cm,right=3cm,top=2.5cm,bottom=2.5cm]{geometry}
+%\usepackage[final]{microtype} %Use if footnotes are used
+
+% Math
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% Figures
+\usepackage{graphicx}
+\graphicspath{
+    {Inputs/Figures/}
+    {Inputs/Pictures/}
+}
+
+% Tables (good looking + better control)
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{tabularx}   % tables that auto-fit width
+\usepackage{adjustbox}  % scale/fit tables to page
+
+% Links (load late)
+\usepackage[hidelinks]{hyperref}
+
+% Bibliography (APA 7) — requires biber
+\usepackage[backend=biber,style=apa]{biblatex}
+\DeclareLanguageMapping{american}{american-apa}
+\addbibresource{References.bib}
+
+\usepackage{float}
+\setlength{\parindent}{0pt}
+%\setlength{\parskip}{0.5em} % for more space between lines

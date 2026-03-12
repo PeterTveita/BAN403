@@ -1,0 +1,31 @@
+\section{Task 1: Monte Carlo Simulation}
+
+\subsection{The model}
+In this task I simulated the group stage for the 2022 FIFA World Cup using the given Competing Poisson-distribution model. The Poisson distribution is used to model the number of times an event occurs in a given interval, assuming that the events happen randomly and independently \parencite[p. 202]{laguna2019}.\\
+
+For each team, the number of expected goals $\lambda$ (home team) and $\mu$ (away team) are calculated using the given offensive $\alpha$ and defensive $\beta$ parameters. A home effect $\gamma$ and $\delta$ is added if Qatar is amongst the teams playing, and set to "False" if not. The values of expected goals for home team $\lambda$ and away team $\mu$ are then used to calculate the probability of each team scoring $X_{ij}$ and $Y_{ij}$ goals, between 0 and 5 goals. As the task restricts the scorelines between 0 and 5 goals (removing possible scores above this), we then have to normalize the probabilities to ensure they sum up to 1.\\
+
+To simulate a match, a score is randomly drawn for each team based on the pre-calculated probabilities. This means the more probable scores will occur more often, and ensures the simulation reflects realistic outcomes. After all matches in a group are simulated, the points are awarded to each team, and the table is updated accordingly. The table is sorted based on the rules of the competition, such as points and goal difference \parencite{wiki_fifa2022} \\
+
+This process is repeated for 10 000 iterations, with results added to a dictionary. These results are then divided by iterations to get the probability of occurence. \\
+
+\subsection{Optimalization}
+
+Before simulation, I added a function to compute the probabilities for each team's score before the Monte Carlo simulation. This was done to avoid calculation being done in every iteration, as my program used 8 minutes to run 10 000 calculations without doing this.
+
+\subsection{Results}
+
+The results of the Monte Carlo simulation are shown in Figure \ref{fig:task1}. The figure shows the probabilities of each team winning and qualifying in their group, as well as mean expected points and goal difference through the group stage. We can see that some groups are evenly distributed regarding qualifying, with similar probabilities for each team. Other groups, such as group E have clear favorites. The host nation, Qatar, has the second lowest probability of qualifying, only beaten by Cameroon, even with home effect applied. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{BildeTask1.png}
+    \caption{Simulation results}
+    \label{fig:task1}
+\end{figure}
+
+\subsection{Model evaluation}
+
+The model gives a reasonable approach to estimating probabilities for the outcomes of the group stage. The Poisson distribution is fitting as it models the unpredictable nature of football, with reoccuring events (goals) happening in a given interval. Variation in team strength is taken into account with the offensive and defensive parameters $\alpha$ and $\beta$, as is playing at home for Qatar with parameters $\gamma$ and $\delta$. Simulating over 10 000 iterations gives a good estimate of the probabilities, as it reduces the influence of outliers and fluctuations in the results, together with the goal cap set at 5.\\
+
+However, the model is a simplification of reality. It assumes that goals are independent events, failing to take into account the many factors that can influence the outcome of a single match. Additionally, the parameters are set to be constant, even though factors such as injuries, tactical decisions and even the psychological effect of having supporters may have an impact on this, and therefore also on the results. While the model provides useful estimates of probabilities, it should be viewed as an approximation rather than an exact prediction of the group stage.
