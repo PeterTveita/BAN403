@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber Build/Main"] 1773356183.54385 "Build/Main.bcf" "Build/Main.bbl" "Build/Main" 1773360656.4273 0
-  "Build/Main.bcf" 1773360656.35845 133916 a243ade3c40f005948581f7892ad7dbc "pdflatex"
+["biber Build/Main"] 1773356183.54385 "Build/Main.bcf" "Build/Main.bbl" "Build/Main" 1773390127.66166 0
+  "Build/Main.bcf" 1773390127.61144 133916 a243ade3c40f005948581f7892ad7dbc "pdflatex"
   "References.bib" 1773356183.36924 431 d6ee85e11211d461631bcc8c551528e0 ""
   (generated)
   "Build/Main.bbl"
   "Build/Main.blg"
   (rewritten before read)
-["pdflatex"] 1773360655.15545 "/Users/petertveita/Documents/GitHub/BAN403/Assignments/Assignment 1/Latex/Main.tex" "Main.pdf" "Main" 1773360656.42758 0
+["pdflatex"] 1773390126.50517 "/Users/petertveita/Documents/GitHub/BAN403/Assignments/Assignment 1/Latex/Main.tex" "Main.pdf" "Main" 1773390127.66188 0
   "/Users/petertveita/Documents/GitHub/BAN403/Assignments/Assignment 1/Latex/Main.tex" 1773360163.96857 299 7a1019697c999392a51c290bfac3104f ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
@@ -106,6 +106,7 @@
   "/usr/local/texlive/2025/texmf-dist/tex/latex/csquotes/csquotes.sty" 1712263026 62767 e79d6d7a989e7da62dcf3d0a65c1faee ""
   "/usr/local/texlive/2025/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty" 1579991033 13886 d1306dcf79a944f6988e688c1785f9ce ""
   "/usr/local/texlive/2025/texmf-dist/tex/latex/etoolbox/etoolbox.sty" 1739306980 46850 d87daedc2abdc653769a6f1067849fe0 ""
+  "/usr/local/texlive/2025/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty" 1739048179 31715 19e60610b63819fe670dfa1cd84a4e94 ""
   "/usr/local/texlive/2025/texmf-dist/tex/latex/float/float.sty" 1137110151 6749 16d2656a1984957e674b149555f1ea1d ""
   "/usr/local/texlive/2025/texmf-dist/tex/latex/geometry/geometry.sty" 1578002852 41601 9cf6c5257b1bc7af01a58859749dd37a ""
   "/usr/local/texlive/2025/texmf-dist/tex/latex/graphics-cfg/graphics.cfg" 1465944070 1224 978390e9c2234eab29404bc21b268d1e ""
@@ -140,11 +141,11 @@
   "/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1771937729 5467155 19efa205003f9ecad95fbbaa6ff24da1 ""
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1771937695 3345738 2441ba33a6a98f306cdd9acde1834a62 ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
-  "Build/Main.aux" 1773360656.35356 6707 adef1a553763ed7356f0df5595e0aa34 "pdflatex"
+  "Build/Main.aux" 1773390127.608 6707 adef1a553763ed7356f0df5595e0aa34 "pdflatex"
   "Build/Main.bbl" 1773356184.82669 6326 3325a912526932e8dedc0484ced7e585 "biber Build/Main"
-  "Build/Main.out" 1773360656.35556 4902 b828509d8c0cbeb916d126c76bc38e19 "pdflatex"
-  "Build/Main.run.xml" 1773360656.35917 2427 35ce118e09202d4d8e93ef82e1e09834 "pdflatex"
-  "Build/Main.toc" 1773360656.35924 2634 e938d7084da2c4f9b70697e0928f6a34 "pdflatex"
+  "Build/Main.out" 1773390127.60935 4902 b828509d8c0cbeb916d126c76bc38e19 "pdflatex"
+  "Build/Main.run.xml" 1773390127.61196 2427 35ce118e09202d4d8e93ef82e1e09834 "pdflatex"
+  "Build/Main.toc" 1773390127.61203 2634 e938d7084da2c4f9b70697e0928f6a34 "pdflatex"
   "Inputs/Pictures/Bilde1.png" 1773345808.80465 46112 6361c3aba6900ffb9425bd1ba2cef911 ""
   "Inputs/Pictures/Bilde2.png" 1773347346.34362 71697 16addf9521cfcabf769c05d184d5e40a ""
   "Inputs/Pictures/Bilde3.png" 1773347364.82967 203477 c89d1a59925a6a7809c922a6933532b4 ""
@@ -156,11 +157,11 @@
   "Inputs/Tables/Table2.tex" 1773345431.85944 1100 c3527bdad7452145229437dd85ea7d2a ""
   "Inputs/Tables/Table3.tex" 1773349016.65897 2255 53b71a3df805f85a5d9d440432f59eea ""
   "Main.tex" 1773360163.96857 299 7a1019697c999392a51c290bfac3104f ""
-  "Preamble.tex" 1773347029.66882 995 119828d899a921161ece369d3d20a157 ""
+  "Preamble.tex" 1773390126.41007 1183 d97c59e1c7dd2c51a70b2438ee5bc397 ""
   "Sections/Appendix.tex" 1773349117.55359 749 fcce5061c472bbade34b386f7ed30f4a ""
-  "Sections/Task1.tex" 1773360655.07603 3906 595e83012006faf93e956778b809e74c ""
+  "Sections/Task1.tex" 1773360711.53986 3906 595e83012006faf93e956778b809e74c ""
   "Sections/Task2.tex" 1773358928.2722 12033 03a5d95bc2f5cb30b1ca3e0a86d77edb ""
-  "Sections/Titlepage.tex" 1773358977.43699 222 8b2f398fe23e038e4c00bdc402c07821 ""
+  "Sections/Titlepage.tex" 1773390083.11061 232 a1478f07a617e4b0f05a3d388b23602a ""
   (generated)
   "Build/Main.aux"
   "Build/Main.bcf"
