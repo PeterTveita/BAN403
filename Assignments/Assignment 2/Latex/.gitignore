@@ -1,0 +1,44 @@
+# LaTeX intermediate files
+*.aux
+*.lof
+*.log
+*.lot
+*.fls
+*.out
+*.toc
+*.fmt
+*.fot
+*.cb
+*.cb2
+*.lb
+
+# bibliography
+*.bbl
+*.blg
+*.bcf
+*.run.xml
+
+# index
+*.idx
+*.ilg
+*.ind
+
+# glossaries
+*.glo
+*.gls
+*.glg
+
+# latexmk
+*.fdb_latexmk
+*.synctex.gz
+
+# build folders
+build/
+dist/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# VS Code
+.vscode/settings.json
