@@ -12,7 +12,7 @@
 
 % Paragraph formatting (no indent + space between paragraphs)
 \setlength{\parindent}{0pt}
-%\setlength{\parskip}{2pt}
+\setlength{\parskip}{8pt}
 
 % Math
 \usepackage{amsmath}
@@ -30,6 +30,7 @@
 \usepackage{array}
 \usepackage{tabularx}   % tables that auto-fit width
 \usepackage{adjustbox}  % scale/fit tables to page
+\usepackage{float}
 
 % Links (load late)
 \usepackage[hidelinks]{hyperref}
@@ -38,3 +39,6 @@
 \usepackage[backend=biber,style=apa]{biblatex}
 \DeclareLanguageMapping{american}{american-apa}
 \addbibresource{References.bib}
+
+\usepackage[none]{hyphenat}
+\sloppy

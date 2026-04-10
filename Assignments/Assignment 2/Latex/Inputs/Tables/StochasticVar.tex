@@ -1,0 +1,66 @@
+% \begin{table}[H]
+% \centering
+% \begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{0.33\textwidth} >{\raggedright\arraybackslash}p{0.14\textwidth} >{\raggedright\arraybackslash}X}
+% \toprule
+% \textbf{Variable} & \textbf{Type} & \textbf{Description} \\
+% \midrule
+% Registration time & Continuous & Time spent on administrative registration \\
+% Vitals time & Continuous & Time to record patient vitals \\
+% Physician assistant time & Continuous & Time spent by PA on follow-up patients \\
+% Check-out time & Continuous & Time to complete visit and paperwork \\
+% Resident review (new) & Continuous & Time reviewing patient file for new patients \\
+% Resident--patient interaction (new) & Continuous & Consultation time with resident \\
+% Teaching time (new) & Continuous & Teaching interaction between resident and attending \\
+% Resident--attending interaction (new) & Continuous & Discussion between resident and attending \\
+% Resident review (return) & Continuous & Time reviewing file for return patients \\
+% Resident--patient interaction (return) & Continuous & Consultation time with resident \\
+% Teaching time (return) & Continuous & Teaching interaction for return patients \\
+% Resident--attending interaction (return) & Continuous & Discussion between resident and attending \\
+% Patient type & Discrete & New, return, or follow-up patients \\
+% Follow-up requires attending & Discrete & Whether PA consults attending (approximately 50\%) \\
+% No-show / cancellation & Discrete & Whether patient attends appointment (approximately 10\% no-show) \\
+% Arrival deviation & Continuous & Difference between actual arrival time and scheduled appointment time \\
+% Resident availability & Discrete & Number of residents available per session \\
+% \bottomrule
+% \end{tabularx}
+% \caption{Identified stochastic inputs}
+% \end{table}
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabularx}{\textwidth}{p{4cm} p{2cm} X}
+\toprule
+\textbf{Variable} & \textbf{Type} & \textbf{Description} \\
+\midrule
+
+\multicolumn{3}{l}{\textbf{Patient arrivals}} \\
+Arrival deviation & Continuous & Difference between actual arrival time and scheduled appointment time \\
+
+\midrule
+\multicolumn{3}{l}{\textbf{Treatment times}} \\
+Registration time & Continuous & Time spent on administrative registration \\
+Vitals time & Continuous & Time to record patient vitals \\
+Physician assistant time & Continuous & Time spent by PA on follow-up patients \\
+Check-out time & Continuous & Time to complete visit and paperwork \\
+Resident review (new) & Continuous & Time reviewing patient file (new patients) \\
+Resident--patient interaction (new) & Continuous & Consultation time with resident \\
+Teaching time (new) & Continuous & Teaching interaction between resident and attending \\
+Resident--attending interaction (new) & Continuous & Discussion between resident and attending \\
+Resident review (return) & Continuous & Time reviewing file (return patients) \\
+Resident--patient interaction (return) & Continuous & Consultation time with resident \\
+Teaching time (return) & Continuous & Teaching interaction for return patients \\
+Resident--attending interaction (return) & Continuous & Discussion between resident and attending \\
+
+\midrule
+\multicolumn{3}{l}{\textbf{Patient outcomes (routing decisions)}} \\
+Patient type & Discrete & New, return, or follow-up patients \\
+Follow-up requires attending & Discrete & Whether PA consults attending (approximately 50\%) \\
+No-show / cancellation & Discrete & Whether patient attends appointment (approximately 10\% no-show) \\
+Resident availability & Discrete & Number of residents available per session \\
+
+\bottomrule
+\end{tabularx}
+\caption{Identified stochastic inputs}
+\label{tab:stochastic_vars}
+\end{table}
