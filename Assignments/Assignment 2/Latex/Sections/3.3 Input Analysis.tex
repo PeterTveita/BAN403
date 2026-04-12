@@ -26,7 +26,6 @@ The spreadsheet contains observations for each activity described in the system,
 
 Finally, relevant routing decisions are also extracted from the case description, to capture the stochastic nature of patient outcomes and their paths through the system. Patient type (new, return or follow-up), decisions regarding follow-up patients and no-show rates are all extracted to determine how patients flow through the system, affecting resource utilization and waiting times.
 
-
 \subsection{Fitting appropriate statistical distributions}
 
 \begin{figure}[H]
@@ -57,9 +56,9 @@ Finally, relevant routing decisions are also extracted from the case description
     \label{fig:servicetimes}
 \end{figure}
 
-To determine a suitable probability distribution, histograms can be used to identify the underlying shape of the data, which can the be compared to known theoretical distributions \parencite[p. 362]{pensumbok}. \autoref{fig:servicetimes} presents histograms for registration time (\autoref{fig:reg}), vitals (\autoref{fig:vitals}) and resident \& patient time (\autoref{fig:resident}). 
+To determine a suitable probability distribution, histograms can be used to identify the underlying shape of the data, which can the be compared to known theoretical distributions \parencite[p. 362]{pensumbok}. \autoref{fig:servicetimes} presents histograms for the three example variables registration time (\autoref{fig:reg}), vitals (\autoref{fig:vitals}) and resident \& patient time (\autoref{fig:resident}). 
 
-All three histograms provide a clear right-skewed form with a long tail towards higher values, while most observations are found at lower values. Although the variation differs for the three variables, the overall shape of the data is consitent. This suggests that a positive and flexible distribution, such as Gamma or exponential could be fitting.
+All three histograms provide a clear right-skewed form with a long tail towards higher values, while most observations are found at lower values. Although the variation differs for the three variables, the overall shape of the data is consitent. This suggests that a positive and flexible distribution, such as Gamma or exponential could be used. We test for these two, in addition to the Lognormal and Weibull distribution.
 
 % To complement the graphical analysis, we calculated descriptive statistics to check this distribution. Our results underline the graphical analysis, highlighting that Gamma would be the best distribution for our model. %Add statistics
 
@@ -70,10 +69,25 @@ All three histograms provide a clear right-skewed form with a long tail towards 
     \label{fig:distribution}
 \end{figure}
 
-\autoref{fig:distribution} shows the histogram of registration times with fitted probability density functions. Using maximium likelihood estimation we can see that Gamma and Erlang distributions provide the closest fit to the data, as they capture both the right-skewed nature and long tail of the dataset. We choose the Gamma distribution due to its flexibility, as it allows for a continuous shape parameter, whereas Erlang distribution restricts shape parameters to integers.
+\autoref{fig:distribution} shows the histogram of registration times with fitted probability density functions. Using maximium likelihood estimation we can see that Gamma and Lognorm distributions provide the closest fit to the data, as they capture both the right-skewed nature and long tail of the dataset.
 
 \subsection{Goodness-of-fit test}
 
-Using a Kolmogorov-Smirnov goodness-of-fit test we can evaluate the suitability of the Gamma distribution. The KS-test measures the largest absoulte deviation between the empirical and theoritical cumulative probability distribution functions \parencite[p. 423]{pensumbok}. If the deviation is small enough, along with a high enough p-value, the distribution is considered to be a good suit for the data.
+Using a Kolmogorov-Smirnov goodness-of-fit test we can evaluate the suitability of the Gamma distribution. The KS-test measures the largest absoulte deviation between the empirical and theoritical cumulative probability distribution functions \parencite[p. 423]{pensumbok}. If the deviation is small enough, along with a sufficient p-value, the distribution is considered to be a good suit for the data.
 
-We calculated a KS-statistic of 0.1235, with a p-value of 0.0896. A significance level above 5\% indicates that the null-hypothesis that the data follows a Gamma distribution cannot be rejected, and that the deviation can be explained by randomness \parencite[p. 425]{pensumbok}. 
+The Gamma distribution is selected as it yeilds a KS statistic of 0.1132 with a p-value of 0.1466, compared to lognormals KS statistic of 0.1195 and p-value of 0.1089. A significance level above 5\% indicates that the null-hypothesis that the data follows a Gamma distribution cannot be rejected, and that the deviation can be explained by randomness \parencite[p. 425]{pensumbok}. This is then done for all variables in the system.
+
+\subsection{Discussing input assumptions}
+
+We make multiple assumptions regarding our dataset to make our model realistic. First, we assume that time is continuous. The dataset provides time in minutes as integers, although it is inherently continuous. This assumption is made to better capture the nature of time, and justifies the use of a continuous distribution such as the Gamma distribution. \\
+As some variables, such as teach and resident review contains zero-values, all distributions are fitted with a location parameter of -0.01. Gamma and Lognormal distribution requires strictly positive values, so this is a technical assumption made to ensure all distributions can be fitted.
+
+Second, we assume that the observations are independent of each other, meaning that one patient and their service times does not affect the next patients service time. It is also assumed that service times are steady throughout the observation period, so that the underlying distribution does not change.
+
+Finally, as all distributions are rejected by the KS test for the variable vitals, we use the best distribution available, which is the weibull distribution. This comes at a KS statistic of 0.2028 with a p-value of 0.0005.
+
+\subsection{Final input models}
+
+\autoref{tab:finalinputs} provides all variables with their distributions and parameters. 
+
+\input{Inputs/Tables/FinalInputVar.tex}
