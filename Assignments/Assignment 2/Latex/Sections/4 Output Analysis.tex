@@ -1,0 +1,26 @@
+\section{Output Analysis}
+
+\subsection{Design}
+
+Along with the AS-IS model, three TO-BE scenarios are evaluated as described in section 1.2.
+As each session lasts approximately 4 hours, we set the simulation time to 6 hours to ensure that every patient could finish their visit. All models were run with 30 replications, which gives a 95\% confidence intervals of all replications below 8 minutes. The random seeds used in the probability distributions were consistent for all models, enabling comparison and reducing variance across simulations.
+
+\subsection{Performance measures}
+
+The primary output measure is mean cycle time per patient \parencite{MillerPainTreatmentCenter}, defined as time in minutes from arrival to checkout. This directly affects patient care, and is Dr. Weems' primary focus in optimizing the system. Total patients processed is a secondary measure, to ensure that enhancements made do not affect overall system performance.
+
+\subsection{Confidence intervals}
+
+\autoref{tab:ci} presents mean cycle time and 95\% confidence intervals for all models across 30 replications. The results show a clear improvement of the system for all modifications, with the combined solution giving the best performance. The reduction in confidence interval show not only an improvement in performance, but also a reduction in variability, suggesting a more consistent and reliable process flow.
+
+\input{Inputs/Tables/ConfidenceInterval.tex}
+
+\subsection{Statistical comparison}
+
+\autoref{tab:ci} shows that none of the TO-BE scenario has overlapping confidence intervals with the AS-IS simulation, suggesting statistically significant differences \parencite[p. 390]{pensumbok}.
+
+This suggestion is confirmed by the paired t-test applied to compare the outputs from each simulation, measuring the average deviation between models \parencite[p. 426-429]{pensumbok}. Since random seeds are shared for all models, performance difference $D_i = \bar{x}_i^{TO-BE} - \bar{x}_i^{AS-IS}$ is a result of enhancements made rather than variance. The null hypothesis $H_0: \mu_D = 0$ is tested at the 5\% significance level with $n - 1 = 29$ degrees of freedom.
+
+The null-hypothesis is rejected for all scenarios, as the t-statistic is well below the critical value of $t_{0.025,29} = -2.045$. The combined model provides the best reduction in mean cycle time, with 12.11 minutes less than the AS-IS model, validating that the combination of scheduling and pre-processing benefit overall performance.
+
+\input{Inputs/Tables/T-test.tex}

@@ -1,0 +1,114 @@
+\appendix
+
+\renewcommand{\thefigure}{\thesection.\arabic{figure}}
+\renewcommand{\thetable}{\thesection.\arabic{table}}
+
+\section{Flow chart}
+\setcounter{figure}{0}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Inputs/Pictures/FlowChart.pdf}
+    \caption{Flow chart}
+    \label{fig:FlowChart}
+\end{figure}
+
+\section{Conceptual design}
+\setcounter{table}{0}
+
+\begin{table}[H]
+\centering
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{0.9}
+\begin{tabularx}{\textwidth}{
+>{\raggedright\arraybackslash}p{0.22\textwidth}
+>{\raggedright\arraybackslash}p{0.20\textwidth}
+>{\raggedright\arraybackslash}X}
+\toprule
+\textbf{Components} & \textbf{Simulation implementations} & \textbf{Specifications \& resources} \\
+\midrule
+
+\multicolumn{3}{l}{\textbf{Arrival and routing}} \\
+Patient & SimEntity & One entity type. Patient type decided by PatientType Branch \\
+Scheduled arrivals & EntityGenerator, EventSchedule & 17 patients per schedule; max=17; cycle=10 h \\
+No-show decision & Branch & P(continue)=0.90 $\rightarrow$ Registration; P(no-show)=0.10 $\rightarrow$ exit; sign in instantaneous \\
+Patient type routing & Branch & P(new)=0.30, P(return)=0.40, P(follow-up)=0.30 \\
+PA consultation? & Branch & P(consult)=0.50, P(not)=0.50 \\
+
+\midrule
+\multicolumn{3}{l}{\textbf{Common input flow}} \\
+Register & Server, Queue & Gamma(mean=4.333 min, shape=3.069) \\
+Vitals & Server, Queue & Weibull(scale=3.982 min, shape=2.107) \\
+
+\midrule
+\multicolumn{3}{l}{\textbf{New and return flow}} \\
+Resident Review & Seize, Server, Queue & Seize resident \& exam room. New: Gamma(mean=10.4). Return: LogNormal($\mu$=1.737, $\sigma$=1.002) \\
+Resident \& Patient & Server, Queue & New: LogNormal($\mu$=2.857, $\sigma$=0.558), Return: Weibull(scale=14.665, shape=1.740) $\rightarrow$ SeizeAttending \\
+Teach & Seize, Server, Queue & SeizeAttendingResource. New: Gamma(mean=7.861), Return: Weibull(scale=5.438) \\
+Resident \& Attending & Server, Queue & New: Gamma(mean=12.450), Return: LogNormal($\mu$=1.942, $\sigma$=0.738); release all $\rightarrow$ check-out \\
+
+\midrule
+\multicolumn{3}{l}{\textbf{Follow-up flow}} \\
+PA & Seize, Server, Queue & Seize PA room. LogNormal($\mu$=2.968, $\sigma$=0.541) \\
+PA \& Attending & Seize, Server, Queue & Seize Attending; constant=3 min; release $\rightarrow$ check-out \\
+
+\midrule
+\multicolumn{3}{l}{\textbf{Departure flow and output}} \\
+Check-Out & Server, Queue & Gamma(mean=4.724, shape=2.320) $\rightarrow$ PatientStatistics $\rightarrow$ Exit \\
+Output & Statistics, EntitySink & PatientStatistics collect total time per patient \\
+
+\midrule
+\multicolumn{3}{l}{\textbf{Resources}} \\
+Attending & Resource & Capacity=1 (New, Return, Follow-up) \\
+Residents & Resource & Capacity=3; held from Resident Review to Resident \& Attending \\
+Exam room (New/Return) & Resource & Capacity=3; held from Resident Review to Resident \& Attending \\
+PA exam room & Resource & Capacity=1; dedicated Follow-up; held from PA to PA \& Attending \\
+
+\bottomrule
+\end{tabularx}
+\caption{Simulation components, implementations, specifiations and resources}
+\label{tab:conceptual_design}
+\end{table}
+
+
+\section{Stochastic variables}
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabularx}{\textwidth}{p{4cm} p{2cm} X}
+\toprule
+\textbf{Variable} & \textbf{Type} & \textbf{Description} \\
+\midrule
+
+\multicolumn{3}{l}{\textbf{Service times}} \\
+Registration time & Continuous & Time spent on administrative registration \\
+Vitals time & Continuous & Time to record patient vitals \\
+Physician assistant time & Continuous & Time spent by PA on follow-up patients \\
+Check-out time & Continuous & Time to complete visit and paperwork \\
+Resident review (new) & Continuous & Time reviewing patient file (new patients) \\
+Resident--patient interaction (new) & Continuous & Consultation time with resident \\
+Teaching time (new) & Continuous & Teaching interaction between resident and attending \\
+Resident--attending interaction (new) & Continuous & Discussion between resident and attending \\
+Resident review (return) & Continuous & Time reviewing file (return patients) \\
+Resident--patient interaction (return) & Continuous & Consultation time with resident \\
+Teaching time (return) & Continuous & Teaching interaction for return patients \\
+Resident--attending interaction (return) & Continuous & Discussion between resident and attending \\
+
+\midrule
+\multicolumn{3}{l}{\textbf{Routing decisions}} \\
+Patient type & Discrete & New, return, or follow-up patients \\
+Follow-up requires attending & Discrete & Whether PA consults attending (approximately 50\%) \\
+No-show / cancellation & Discrete & Whether patient attends appointment (approximately 10\% no-show) \\
+
+\bottomrule
+\end{tabularx}
+\caption{Identified stochastic inputs}
+\label{tab:stochastic_vars}
+\end{table}
+
+\newpage
+\section{JaamSim documentation}
+
+\input{Sections/JaamSimDocumentation.tex}

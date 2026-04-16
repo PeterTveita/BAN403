@@ -1,0 +1,31 @@
+\begin{table}[H]
+\centering
+\scriptsize
+\setlength{\tabcolsep}{2.5pt}
+\renewcommand{\arraystretch}{0.95}
+\begin{tabularx}{\textwidth}{l l l X}
+\toprule
+\textbf{Process Activity} & \textbf{Resource} & \textbf{Patient type} & \textbf{Data} \\
+\midrule
+
+\multicolumn{4}{l}{\textbf{Administrative}} \\
+Sign in & Front desk & All & New: 30, Other: 15 min \\
+Register & Front desk & All & Avg: 4.33 min \\
+Check-Out & Front desk & All & Avg: 4.72 min \\
+
+\midrule
+\multicolumn{4}{l}{\textbf{Clinical}} \\
+Vitals & CA, Exam room & All & Avg: 3.53 min \\
+Resident review & Resident & New/Return & New: 10.44, Return: 9.30 min \\
+Resident \& Patient & Resident, Exam room & New/Return & New: 20.16, Return: 12.99 min \\
+Teach & Resident, Attending & New/Return & New: 7.85, Return: 5.17 min \\
+Resident \& Attending & Resident, Attending, Exam room & New/Return & New: 12.45, Return: 9.24 min \\
+
+\midrule
+\multicolumn{4}{l}{\textbf{Follow-up}} \\
+PA consultation & PA, exam room & Follow-up & -- \\
+PA \& Attending & PA, Attending & Follow-up (50\%) & Approx. 3 min \\
+
+\bottomrule
+\end{tabularx}
+\end{table}

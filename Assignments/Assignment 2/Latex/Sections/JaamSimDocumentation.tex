@@ -1,19 +1,19 @@
-\section{AS-IS}
+\subsection{AS-IS}
 
-The AS-IS model simulates the Miller Pain Treatment Center in its current state. Patients arrives at their scheduled appointments, with 17 appointments between 08:00 and 11:15. A 10\% no-show rate is applied with a branch at arrival, from the case description.
+The AS-IS model simulates the Miller Pain Treatment Center in its current state. Patients arrives at their scheduled appointments, with 17 appointments between 08:00 and 11:15. A 10\% no-show rate is applied with a branch at arrival.
 
-After registration and vitals, patients are routed by type. New and return patients seize a resident and an examination room before going through resident processes with attending and teaching. Follow-up patients seize a examination room and are seen by a physical assistant, with a 50\% probability of needing additional medical attention. 
+After registration and vitals, patients are routed by type. New and return patients seize a resident and an examination room before going through resident processes with attending and teaching. Follow-up patients seize a examination room and are seen by a physician assistant, with a 50\% probability of needing additional medical attention. 
 
 Service time distributions were fitted from the data provided in the case given in \cite{MillerPainTreatmentCenter}, with the distributions given in \autoref{tab:finalinputs}.
 
-\section{TO-BE 1: Scheduling}
+\subsection{TO-BE 1: Scheduling}
 
 The TO-BE 1 (Scheduling) is identical to the AS-IS model in its structure. The only modification done is changing of the patient schedule, where all appointments are evenly spread every 15 minutes throughout each session. This is done after Dr. Weems suspicion that clustered appointments contribute to inefficiency in the system \parencite{MillerPainTreatmentCenter}.
 
-\section{TO-BE 2: Pre-processing}
+\subsection{TO-BE 2: Pre-processing}
 
-Dr. Weems also suspects that the variance accross teaching contributes to performance loss in the system, suggesting that reviewing the case the day before might decrease waiting times in this area. Dr. Weems estimates that this could cut average review- and teaching times in half \parencite{MillerPainTreatmentCenter}. We have therefore halved distributions connected to these processes, while all other variables are kept intact.
+Dr. Weems also suspects that the variance accross teaching contributes to performance loss in the system, suggesting that reviewing the case the day before might decrease waiting times in this area. Dr. Weems estimates that this could cut average review- and teaching times in half \parencite{MillerPainTreatmentCenter}. We have therefore reduced distributions connected to these processes, while all other variables are kept intact.
 
-\section{TO-BE 1: Combined}
+\subsection{TO-BE 3: Combined}
 
-The combined model simulates a system where both scheduling and pre-processing are used, to see if a combination of the two modifications provide better performance than either alone. This model builds on the thought that Dr. Weems assumptions about scheduling and pre-processing are independent performance factors, and that applying both simultaneously might provide better results.
+The combined model simulates a system where both scheduling and pre-processing are used, to see if a combination of the two modifications provide better performance than either alone.

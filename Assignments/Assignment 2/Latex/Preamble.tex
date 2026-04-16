@@ -7,12 +7,14 @@
 \usepackage{csquotes}
 
 % Page layout (A4 + sane margins)
-\usepackage[a4paper,left=3cm,right=3cm,top=2.5cm,bottom=2.5cm]{geometry}
-%\usepackage[final]{microtype} %Use if footnotes are used
+\usepackage[a4paper,margin = 2.5cm]{geometry}
+\usepackage[final]{microtype} %Use if footnotes are used
 
 % Paragraph formatting (no indent + space between paragraphs)
 \setlength{\parindent}{0pt}
-\setlength{\parskip}{8pt}
+\setlength{\parskip}{0pt}
+\usepackage{setspace}
+\setstretch{1.168}
 
 % Math
 \usepackage{amsmath}
@@ -45,15 +47,15 @@
 \usepackage[none]{hyphenat}
 \sloppy
 
-% %Header with candidate number
-% % =======================
-% \usepackage{fancyhdr}
-% \pagestyle{fancy}
+%Header with candidate number
+% =======================
+\usepackage{fancyhdr}
+\pagestyle{fancy}
 
-% \fancyhf{} % nullstill
+\fancyhf{} % nullstill
 
-% \fancyhead[L]{Candidate number: 74, }
+\fancyhead[L]{Candidate number: 74, 39}
 
-% \fancyfoot[C]{\thepage} % sidetall i bunn
+\fancyfoot[C]{\thepage}
 
-% \renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0.4pt}

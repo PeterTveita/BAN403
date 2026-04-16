@@ -1,25 +1,26 @@
 \begin{table}[H]
 \centering
+\footnotesize
 \begin{tabular}{llcc}
 \toprule
-\textbf{Variable} & \textbf{Distribution} & \textbf{Shape} & \textbf{Scale} \\
-\midrule
-Registration & Gamma & 3.069 & 1.415 \\
-Vitals & Weibull$^*$ & 2.107 & 3.982 \\
-Physicians Assistant & Lognormal & 0.541 & 19.463 \\
-Check Out & Gamma & 2.320 & 2.041 \\
-Resident Review (New) & Gamma & 1.401 & 7.461 \\
-Resident \& Patient (New) & Lognormal & 0.558 & 17.414 \\
-Teach (New) & Gamma & 1.879 & 4.184 \\
-Resident \& Attending (New) & Gamma & 2.831 & 4.401 \\
-Resident Review (Return) & Lognormal & 1.002 & 5.678 \\
-Resident \& Patient (Return) & Weibull & 1.740 & 14.665 \\
-Teach (Return) & Weibull & 1.173 & 5.438 \\
-Resident \& Attending (Return) & Lognormal & 0.738 & 6.974 \\
+\textbf{Variable} & \textbf{Distribution} & \textbf{KS} & \textbf{p-value} \\
+\midrule\addlinespace[-2pt]
+Registration              & Gamma        & 0.1129 & 0.1481 \\[-2pt]
+Vitals                    & Weibull$^*$  & 0.2028 & 0.0005 \\[-2pt]
+Physicians Assistant      & Lognormal    & 0.0661 & 0.7602 \\[-2pt]
+Check Out                 & Gamma        & 0.0949 & 0.3202 \\[-2pt]
+Resident Review (New)     & Lognormal    & 0.1000 & 0.3084 \\[-2pt]
+Resident \& Patient (New) & Lognormal    & 0.0852 & 0.5040 \\[-2pt]
+Teach (New)               & Lognormal    & 0.0855 & 0.5281 \\[-2pt]
+Resident \& Attending (New)    & Gamma     & 0.0739 & 0.6759 \\[-2pt]
+Resident Review (Return)       & Lognormal & 0.0747 & 0.6046 \\[-2pt]
+Resident \& Patient (Return)   & Weibull   & 0.0677 & 0.7235 \\[-2pt]
+Teach (Return)                 & Weibull   & 0.0995 & 0.2791 \\[-2pt]
+Resident \& Attending (Return) & Lognormal & 0.0946 & 0.3120 \\
 \bottomrule
 \end{tabular}
-\\[6pt]
-{\footnotesize \textit{$^*$ No distribution with p $>$ 0.05, Weibull chosen as best fit}}
+\\[4pt]
+{\footnotesize \textit{$^*$ No distribution passed p $>$ 0.05, Weibull chosen as best fit}}
 \caption{Final inputs with distributions and parameters}
 \label{tab:finalinputs}
 \end{table}
