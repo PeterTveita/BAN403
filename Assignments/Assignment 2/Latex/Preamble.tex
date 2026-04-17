@@ -12,9 +12,9 @@
 
 % Paragraph formatting (no indent + space between paragraphs)
 \setlength{\parindent}{0pt}
-\setlength{\parskip}{0pt}
+\setlength{\parskip}{2pt}
 \usepackage{setspace}
-\setstretch{1.168}
+\setstretch{1.35}
 
 % Math
 \usepackage{amsmath}
@@ -59,3 +59,16 @@
 \fancyfoot[C]{\thepage}
 
 \renewcommand{\headrulewidth}{0.4pt}
+
+\usepackage{titlesec}
+\titlespacing*{\subsubsection}{0pt}{2pt}{2pt}
+\titlespacing*{\subsection}{0pt}{4pt}{2pt}
+\titlespacing*{\section}{0pt}{4pt}{4pt}
+
+\usepackage{tocloft}
+\setlength{\cftbeforesecskip}{2pt}      % mellomrom før \section
+\setlength{\cftbeforesubsecskip}{1pt}   % mellomrom før \subsection
+
+\usepackage{chngcntr}
+\counterwithin{table}{section}
+\counterwithin{figure}{section}
